@@ -28,4 +28,12 @@ public class Menu {
     public void setName(String name) {
         this.name = name;
     }
+
+    public ArrayList<Dish> getDishes() {
+        return dishes;
+    }
+
+    public ArrayList<Restaurant> getRestaurants() {
+        return restaurants;
+    }
 }

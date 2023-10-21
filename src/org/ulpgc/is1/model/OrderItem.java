@@ -4,8 +4,9 @@ public class OrderItem {
     public int quantity;
     private Dish dish;
 
-    public OrderItem(int quantity) {
+    public OrderItem(Dish dish, int quantity) {
         this.quantity = quantity;
+        this.dish = dish;
     }
 
     public int getQuantity() {

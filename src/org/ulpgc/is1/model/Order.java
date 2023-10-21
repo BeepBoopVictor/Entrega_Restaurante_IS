@@ -4,17 +4,19 @@ import java.util.ArrayList;
 
 public class Order {
     private static int NEXT_ID = 0;
-    public final int id;
+    private final int id;
     private ArrayList<OrderItem> orderItems;
-    private Restaurant restaurant;
-    private Customer customer;
+    public Restaurant restaurant;
+    public Customer customer;
 
-    public Order(int id) {
-        this.id = id;
+    public Order(Customer customer, Restaurant restaurant) {
+        this.id = NEXT_ID++;
+        this.restaurant = restaurant;
+        this.customer = customer;
     }
 
-    public void addOrderItem(int quantity){
-        orderItems.add(new OrderItem(quantity));
+    public void addOrderItem(OrderItem orderItem){
+        orderItems.add(orderItem);
     }
 
     public static int getNextId() {

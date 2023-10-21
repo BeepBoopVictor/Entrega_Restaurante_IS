@@ -37,4 +37,12 @@ public class Restaurant {
     public void setPhone(Phone phone) {
         this.phone = phone;
     }
+
+    public ArrayList<Menu> getMenus() {
+        return menus;
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
 }

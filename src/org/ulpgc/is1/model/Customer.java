@@ -17,6 +17,10 @@ public class Customer {
         addresses.add(new Address(street, number, postalCode, city));
     }
 
+    public void addOrder(Order order){
+        orders.add(order);
+    }
+
     public String getName(String format) {
         if(format == "Complete"){
             return name + " " + surname;
