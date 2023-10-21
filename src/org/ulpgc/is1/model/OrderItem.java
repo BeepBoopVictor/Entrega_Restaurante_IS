@@ -2,6 +2,7 @@ package org.ulpgc.is1.model;
 
 public class OrderItem {
     public int quantity;
+    private Dish dish;
 
     public OrderItem(int quantity) {
         this.quantity = quantity;
@@ -15,10 +16,10 @@ public class OrderItem {
         this.quantity = quantity;
     }
 
-    /*public double price(){
+    public double price(int price){
         if(dish != null &&  quantity > 0){
-            return dish.getPrice() * quantity;
+            return price * quantity;
         }
         return 0.0;
-    }*/
+    }
 }

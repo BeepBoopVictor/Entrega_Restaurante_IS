@@ -4,7 +4,7 @@ public class Phone {
     public String number;
     private Restaurant restaurant;
     public Phone(String number) {
-        if (isValid(number) == true){
+        if (isValid(number)){
             this.number = number;
         } else {
             this.number = "XXXX";

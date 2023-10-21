@@ -22,30 +22,23 @@ public class OrderManager {
         dishes.add(dish);
     }
 
-    public static void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantities) {
+    public void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantities) {
         if (customer != null && restaurant != null && dishesId != null && quantities != null) {
             if (dishesId.size() != quantities.size()) {
                 System.out.println("Error: Los IDs de platos y las cantidades no coinciden.");
             }
 
             Order order = new Order();
-            for (int i = 0; i < dishesId.size(); i++) {
+            System.out.println("\n- - -ESTE ES TU PEDIDO- - -\n");
+
+            for (int i = 0; i < dishesId.size(); i++){
                 int dishId = dishesId.get(i);
                 int quantity = quantities.get(i);
-                if (dishId >= 0 && dishId < restaurant.getMenusSize()) {
-                    Menu menu = restaurant.getMenus().get(dishId);
-                    if (menu != null && dishId >= 0 && dishId < menu.getDishes().size()) {
-                           Dish dish = menu.getDishes().get(dishId);
-                           OrderItem orderItem = new OrderItem(quantity);
-                           order.addOrderItem(orderItem);
-                        System.out.println("Se ha pedido el plato: " + dish.getName() + ", estas veces: " + orderItem.quantity);
-                    } else {
-                        System.out.println("Error: Plato no encontrado en el menú.");
-                    }
-                } else {
-                    System.out.println("Error: Menú no encontrado en el restaurante.");
-                }
+                order.addOrderItem(new OrderItem(quantity));
+                System.out.println("Plato: " + dishes.get(dishId).getName() + ", cantidad: " + quantity + ", precio: " + order.price(dishes.get(dishId), quantity));
             }
+
+            System.out.println("\n- - - - - - - - - - - - - -\n");
 
             customer.addOrder(order);
             restaurant.addOrder(order);
@@ -76,5 +69,9 @@ public class OrderManager {
 
     public Dish getDish(int index) {
         return dishes.get(index);
+    }
+
+    public int getCustomerSize(){
+        return customers.size();
     }
 }

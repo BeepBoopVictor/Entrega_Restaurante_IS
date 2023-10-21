@@ -10,7 +10,6 @@ public class Menu {
 
     public Menu(String name) {
         this.name = name;
-        dishes = new ArrayList<Dish>();
     }
 
     public void addDish(Dish dish){

@@ -15,6 +15,10 @@ public class Order {
         orderItems.add(orderItem);
     }
 
+    public OrderItem getOrderItem(int index){
+        return orderItems.get(index);
+    }
+
     public static int getNextId() {
         return NEXT_ID;
     }
@@ -27,11 +31,9 @@ public class Order {
         return id;
     }
 
-    /*public double price(){
-        double totalPrice = 0.0;
-        for (OrderItem item : orderItems) {
-            totalPrice += item.price();
-        }
-        return totalPrice;
-    }*/
+    public double price(Dish dish, int quantity){
+        double final_price = 0.0;
+        final_price += dish.getPrice()*quantity;
+        return final_price;
+    }
 }
