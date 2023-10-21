@@ -16,4 +16,11 @@ public class OrderItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public double price(){
+        if(dish != null &&  quantity > 0){
+            return dish.getPrice() * quantity;
+        }
+        return 0.0;
+    }
 }

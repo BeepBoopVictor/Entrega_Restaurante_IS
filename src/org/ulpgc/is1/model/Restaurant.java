@@ -14,6 +14,10 @@ public class Restaurant {
         this.phone = phone;
     }
 
+    public int getMenusSize(){
+        return menus.size();
+    }
+
     public void addMenu(Menu menu){
         menus.add(menu);
     }

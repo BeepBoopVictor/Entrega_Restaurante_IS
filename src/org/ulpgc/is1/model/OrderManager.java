@@ -7,8 +7,8 @@ public class OrderManager {
     private ArrayList<Restaurant> restaurants;
     private ArrayList<Dish> dishes;
 
-    public void addCustomer(String name, String surname){
-        customers.add(new Customer(name, surname));
+    public void addCustomer(Customer customer){
+        customers.add(customer);
     }
 
     public void addRestaurant(String name, Phone phone){
@@ -19,7 +19,7 @@ public class OrderManager {
         dishes.add(new Dish(name, description, price));
     }
 
-    public void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantities) {
+    public static void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantities) {
         if (customer != null && restaurant != null && dishesId != null && quantities != null) {
             if (dishesId.size() != quantities.size()) {
                 System.out.println("Error: Los IDs de platos y las cantidades no coinciden.");
@@ -30,7 +30,7 @@ public class OrderManager {
             for (int i = 0; i < dishesId.size(); i++) {
                 int dishId = dishesId.get(i);
                 int quantity = quantities.get(i);
-                if (dishId >= 0 && dishId < restaurant.getMenus().size()) {
+                if (dishId >= 0 && dishId < restaurant.getMenusSize()) {
                     Menu menu = restaurant.getMenus().get(dishId);
                     if (menu != null && dishId >= 0 && dishId < menu.getDishes().size()) {
                            Dish dish = menu.getDishes().get(dishId);
@@ -51,4 +51,27 @@ public class OrderManager {
         }
     }
 
+    public void deleteCustomer(Customer customer) {
+        if (customer != null) {
+            for (Customer c : customers) {
+                if (c.equals(customer)) {
+                    customers.remove(c);
+                    return;
+                }
+            }
+            System.out.println("Error: Cliente no encontrado.");
+        }
+    }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+
+    public ArrayList<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public ArrayList<Dish> getDishes() {
+        return dishes;
+    }
 }

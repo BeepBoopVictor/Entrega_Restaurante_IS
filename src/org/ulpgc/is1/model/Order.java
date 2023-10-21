@@ -30,4 +30,12 @@ public class Order {
     public int getId() {
         return id;
     }
+
+    public double price(){
+        double totalPrice = 0.0;
+        for (OrderItem item : orderItems) {
+            totalPrice += item.price();
+        }
+        return totalPrice;
+    }
 }

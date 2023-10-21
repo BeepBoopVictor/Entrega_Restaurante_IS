@@ -41,4 +41,8 @@ public class Customer {
         return addresses;
     }
 
+    public Order getOrder(int index){
+        return orders.get(index);
+    }
+
 }
