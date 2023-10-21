@@ -1,9 +1,12 @@
 package org.ulpgc.is1.model;
 
+import java.util.ArrayList;
+
 public class Dish {
     public String name;
     public String description;
     public int price;
+    private ArrayList<OrderItem> orderItems;
 
     public Dish(String name, String description, int price) {
         this.name = name;

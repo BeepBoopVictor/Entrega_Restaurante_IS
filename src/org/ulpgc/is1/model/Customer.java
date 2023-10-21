@@ -6,6 +6,7 @@ public class Customer {
     public String name;
     public String surname;
     private ArrayList<Address> addresses;
+    private ArrayList<Order> orders;
 
     public Customer(String name, String surname) {
         this.name = name;
@@ -16,16 +17,16 @@ public class Customer {
         addresses.add(new Address(street, number, postalCode, city));
     }
 
-    public String getName() {
-        return name;
+    public String getName(String format) {
+        if(format == "Complete"){
+            return name + " " + surname;
+        } else{
+            return name;
+        }
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
     }
 
     public void setSurname(String surname) {

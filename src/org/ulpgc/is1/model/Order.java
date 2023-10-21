@@ -6,6 +6,8 @@ public class Order {
     private static int NEXT_ID = 0;
     public final int id;
     private ArrayList<OrderItem> orderItems;
+    private Restaurant restaurant;
+    private Customer customer;
 
     public Order(int id) {
         this.id = id;
