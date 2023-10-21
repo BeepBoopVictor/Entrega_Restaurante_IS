@@ -5,14 +5,10 @@ import java.util.ArrayList;
 public class Order {
     private static int NEXT_ID = 0;
     private final int id;
-    private ArrayList<OrderItem> orderItems;
-    public Restaurant restaurant;
-    public Customer customer;
+    private ArrayList<OrderItem> orderItems = new ArrayList<OrderItem>();
 
-    public Order(Customer customer, Restaurant restaurant) {
+    public Order() {
         this.id = NEXT_ID++;
-        this.restaurant = restaurant;
-        this.customer = customer;
     }
 
     public void addOrderItem(OrderItem orderItem){
@@ -31,11 +27,11 @@ public class Order {
         return id;
     }
 
-    public double price(){
+    /*public double price(){
         double totalPrice = 0.0;
         for (OrderItem item : orderItems) {
             totalPrice += item.price();
         }
         return totalPrice;
-    }
+    }*/
 }

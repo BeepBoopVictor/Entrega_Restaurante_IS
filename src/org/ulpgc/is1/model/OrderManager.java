@@ -3,30 +3,32 @@ package org.ulpgc.is1.model;
 import java.util.ArrayList;
 
 public class OrderManager {
-    private ArrayList<Customer> customers;
-    private ArrayList<Restaurant> restaurants;
-    private ArrayList<Dish> dishes;
+    private ArrayList<Customer> customers = new ArrayList<Customer>();
+    private ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+    private ArrayList<Dish> dishes = new ArrayList<Dish>();
+
+    public OrderManager(){
+    }
 
     public void addCustomer(Customer customer){
         customers.add(customer);
     }
 
-    public void addRestaurant(String name, Phone phone){
-        restaurants.add(new Restaurant(name, phone));
+    public void addRestaurant(Restaurant restaurant){
+        restaurants.add(restaurant);
     }
 
-    public void addDish(String name, String description, int price){
-        dishes.add(new Dish(name, description, price));
+    public void addDish(Dish dish){
+        dishes.add(dish);
     }
 
     public static void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantities) {
         if (customer != null && restaurant != null && dishesId != null && quantities != null) {
             if (dishesId.size() != quantities.size()) {
                 System.out.println("Error: Los IDs de platos y las cantidades no coinciden.");
-                return;
             }
 
-            Order order = new Order(customer, restaurant);
+            Order order = new Order();
             for (int i = 0; i < dishesId.size(); i++) {
                 int dishId = dishesId.get(i);
                 int quantity = quantities.get(i);
@@ -34,8 +36,9 @@ public class OrderManager {
                     Menu menu = restaurant.getMenus().get(dishId);
                     if (menu != null && dishId >= 0 && dishId < menu.getDishes().size()) {
                            Dish dish = menu.getDishes().get(dishId);
-                           OrderItem orderItem = new OrderItem(dish, quantity);
+                           OrderItem orderItem = new OrderItem(quantity);
                            order.addOrderItem(orderItem);
+                        System.out.println("Se ha pedido el plato: " + dish.getName() + ", estas veces: " + orderItem.quantity);
                     } else {
                         System.out.println("Error: Plato no encontrado en el menú.");
                     }
@@ -63,15 +66,15 @@ public class OrderManager {
         }
     }
 
-    public ArrayList<Customer> getCustomers() {
-        return customers;
+    public Customer getCustomer(int index) {
+        return customers.get(index);
     }
 
-    public ArrayList<Restaurant> getRestaurants() {
-        return restaurants;
+    public Restaurant getRestaurant(int index) {
+        return restaurants.get(index);
     }
 
-    public ArrayList<Dish> getDishes() {
-        return dishes;
+    public Dish getDish(int index) {
+        return dishes.get(index);
     }
 }

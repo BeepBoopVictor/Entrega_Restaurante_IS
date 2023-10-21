@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Restaurant {
     public String name;
     public Phone phone;
-    private ArrayList<Menu> menus;
-    private ArrayList<Order> orders;
+    private ArrayList<Menu> menus = new ArrayList<Menu>();
+    private ArrayList<Order> orders = new ArrayList<Order>();
     private Phone phone_2;
 
     public Restaurant(String name, Phone phone) {

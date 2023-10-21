@@ -6,7 +6,7 @@ public class Dish {
     public String name;
     public String description;
     public int price;
-    private ArrayList<OrderItem> orderItems;
+    private ArrayList<OrderItem> orderItems = new ArrayList<OrderItem>();
 
     public Dish(String name, String description, int price) {
         this.name = name;
