@@ -10,4 +10,8 @@ public class Order {
     public Order(int id) {
         this.id = id;
     }
+
+    public void addOrderItem(int quantity){
+        orderItems.add(new OrderItem(quantity));
+    }
 }

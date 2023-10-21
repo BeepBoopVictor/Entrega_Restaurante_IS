@@ -7,4 +7,16 @@ public class OrderManager {
     private ArrayList<Restaurant> restaurants;
     private ArrayList<Dish> dishes;
 
+    public void addCustomer(String name, String surname){
+        customers.add(new Customer(name, surname));
+    }
+
+    public void addRestaurant(String name, Phone phone){
+        restaurants.add(new Restaurant(name, Phone));
+    }
+
+    public void addDish(String name, String description, int price){
+        dishes.add(new Dish(name, description, price));
+    }
+
 }

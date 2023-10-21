@@ -11,4 +11,9 @@ public class Customer {
         this.name = name;
         this.surname = surname;
     }
+
+    public void addAddress(String street, int number, int postalCode, String city){
+        addresses.add(new Address(street, number, postalCode, city));
+    }
+
 }

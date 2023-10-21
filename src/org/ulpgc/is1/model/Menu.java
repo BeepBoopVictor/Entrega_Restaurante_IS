@@ -10,4 +10,8 @@ public class Menu {
         this.name = name;
         dishes = new ArrayList<Dish>();
     }
+
+    public void addDish(Dish dish){
+        dishes.add(dish);
+    }
 }
