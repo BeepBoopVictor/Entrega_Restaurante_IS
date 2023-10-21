@@ -14,4 +14,12 @@ public class Menu {
     public void addDish(Dish dish){
         dishes.add(dish);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

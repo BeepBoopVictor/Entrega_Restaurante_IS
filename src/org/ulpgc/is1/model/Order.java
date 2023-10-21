@@ -14,4 +14,16 @@ public class Order {
     public void addOrderItem(int quantity){
         orderItems.add(new OrderItem(quantity));
     }
+
+    public static int getNextId() {
+        return NEXT_ID;
+    }
+
+    public static void setNextId(int nextId) {
+        NEXT_ID = nextId;
+    }
+
+    public int getId() {
+        return id;
+    }
 }

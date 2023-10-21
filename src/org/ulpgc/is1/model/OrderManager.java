@@ -12,11 +12,12 @@ public class OrderManager {
     }
 
     public void addRestaurant(String name, Phone phone){
-        restaurants.add(new Restaurant(name, Phone));
+        restaurants.add(new Restaurant(name, phone));
     }
 
     public void addDish(String name, String description, int price){
         dishes.add(new Dish(name, description, price));
     }
+
 
 }
