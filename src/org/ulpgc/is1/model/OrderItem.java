@@ -4,8 +4,9 @@ public class OrderItem {
     public int quantity;
     private Dish dish;
 
-    public OrderItem(int quantity) {
+    public OrderItem(int quantity, Dish dish) {
         this.quantity = quantity;
+        this.dish = dish;
     }
 
     public int getQuantity() {
@@ -14,12 +15,5 @@ public class OrderItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public double price(int price){
-        if(dish != null &&  quantity > 0){
-            return price * quantity;
-        }
-        return 0.0;
     }
 }

@@ -7,7 +7,6 @@ public class Restaurant {
     public Phone phone;
     private ArrayList<Menu> menus = new ArrayList<Menu>();
     private ArrayList<Order> orders = new ArrayList<Order>();
-    private Phone phone_2;
 
     public Restaurant(String name, Phone phone) {
         this.name = name;

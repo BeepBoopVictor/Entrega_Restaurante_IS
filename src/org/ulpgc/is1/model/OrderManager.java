@@ -29,16 +29,18 @@ public class OrderManager {
             }
 
             Order order = new Order();
-            System.out.println("\n- - -ESTE ES TU PEDIDO- - -\n");
+            System.out.println("\n  - - - - -ESTE ES SU PEDIDO- - - - -\n\nA nombre de: " + customer.getName("Complete") + "\nRestaurante: " + restaurant.getName() + "\n");
+            double final_price = 0.0;
 
             for (int i = 0; i < dishesId.size(); i++){
                 int dishId = dishesId.get(i);
                 int quantity = quantities.get(i);
-                order.addOrderItem(new OrderItem(quantity));
-                System.out.println("Plato: " + dishes.get(dishId).getName() + ", cantidad: " + quantity + ", precio: " + order.price(dishes.get(dishId), quantity));
+                order.addOrderItem(new OrderItem(quantity, dishes.get(dishId)));
+                System.out.println("Plato: " + dishes.get(dishId).getName() + ", cantidad: " + quantity + ", precio: " + order.price(dishes.get(dishId), quantity) +" $");
+                final_price += order.price(dishes.get(dishId), quantity);
             }
-
-            System.out.println("\n- - - - - - - - - - - - - -\n");
+            System.out.println("\nTotal: " + final_price + " $");
+            System.out.println("\n  - - - - - - - - - - - - - - - - - -\n");
 
             customer.addOrder(order);
             restaurant.addOrder(order);
@@ -58,6 +60,31 @@ public class OrderManager {
             System.out.println("Error: Cliente no encontrado.");
         }
     }
+
+    public void deleteRestaurant(Restaurant restaurant) {
+        if (restaurant != null) {
+            for (Restaurant c : restaurants) {
+                if (c.equals(restaurant)) {
+                    restaurants.remove(c);
+                    return;
+                }
+            }
+            System.out.println("Error: Restaurante no encontrado.");
+        }
+    }
+
+    public void deleteDish(Dish dish) {
+        if (dish != null) {
+            for (Dish c : dishes) {
+                if (c.equals(dish)) {
+                    dishes.remove(c);
+                    return;
+                }
+            }
+            System.out.println("Error: Plato no encontrado.");
+        }
+    }
+
 
     public Customer getCustomer(int index) {
         return customers.get(index);

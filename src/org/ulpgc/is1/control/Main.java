@@ -11,7 +11,8 @@ public class Main {
 
         System.out.println("Datos del primer restaurante: " + orderManager.getRestaurant(0).getName() + ", teléfono: " + orderManager.getRestaurant(0).getPhone().getNumber());
         System.out.println("Nombre del segundo cliente: " + orderManager.getCustomer(1).getName("Complete"));
-        System.out.println("Datos del tercer plato: " + orderManager.getDish(2).getName() +", descripción: " + orderManager.getDish(2).getDescription() + ", precio: " + orderManager.getDish(2).getPrice());
+        System.out.println("Datos del tercer plato: " + orderManager.getDish(2).getName() +", descripción: " +
+                orderManager.getDish(2).getDescription() + ", precio: " + orderManager.getDish(2).getPrice() + "$");
 
         ArrayList<Integer> dishesId = new ArrayList<Integer>();
         dishesId.add(1);
